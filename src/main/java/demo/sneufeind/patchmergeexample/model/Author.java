@@ -17,4 +17,5 @@ public class Author {
     private String givenname;
     @Column(name = "name")
     private String surname;
+
 }

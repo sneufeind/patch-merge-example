@@ -4,13 +4,19 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-//@Entity
-//@Table(name = "Books")
+@Entity
+@Table(name = "Books")
 @Data
 public class Book {
 
-    private Integer pages;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "title")
     private String title;
-    private String isbn;
+    @OneToOne
+    @JoinColumn(name="author_id", nullable=false)
+    private Author author;
 
 }
